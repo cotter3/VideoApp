@@ -7,11 +7,11 @@ using WMPLib;
 namespace VideoApp
 {
 
-    public partial class MainWindow : Form
+    public class MainWindow : Form
     {
         public WMPPlayState playState { get; }
-        public int countTimer = 300;
-        public static string currentComp;
+        private int countTimer = 300;
+        public const string currentComp = System.Environment.MachineName;
         public int id;
         public System.Boolean fullScreen { get; set; }
 
@@ -90,8 +90,7 @@ namespace VideoApp
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            //loads all the settings and timer for the video player upon start of app
-            currentComp = System.Environment.MachineName;
+            //loads all the settings and timer for the video player upon start of app           
             textBox1.Text = currentComp;
             axWindowsMediaPlayer.settings.autoStart = true;
             axWindowsMediaPlayer.Ctlcontrols.play();
@@ -100,6 +99,7 @@ namespace VideoApp
             timer1.Interval = 1;
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Enabled = true;
+            axWindowsMediaPlayer_PlayStateChange();
         }
         private void axWindowsMediaPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
