@@ -1,4 +1,4 @@
-﻿using System;
+l﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -11,7 +11,7 @@ namespace VideoApp
     {
         public WMPPlayState playState { get; }
         private int countTimer = 300;
-        public static string currentComp = System.Environment.MachineName;
+        public readonly string currentComp = System.Environment.MachineName;
         private int id;
         public System.Boolean fullScreen { get; set; }
 
