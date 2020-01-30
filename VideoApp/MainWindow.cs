@@ -11,8 +11,8 @@ namespace VideoApp
     {
         public WMPPlayState playState { get; }
         private int countTimer = 300;
-        public const string currentComp = System.Environment.MachineName;
-        public int id;
+        public static string currentComp = System.Environment.MachineName;
+        private int id;
         public System.Boolean fullScreen { get; set; }
 
         public Timer timer1 { get; private set; }
@@ -42,10 +42,9 @@ namespace VideoApp
                 {
                     cmd.ExecuteNonQuery();
                 }
-                catch (SqlException)
+                catch
                 {
-                    Console.WriteLine("Got an expected SqlException due to command timeout on line 4259");
-                    Console.WriteLine(e);
+
                 }
 
                 //queries/fills table
