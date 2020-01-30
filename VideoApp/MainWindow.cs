@@ -9,11 +9,11 @@ namespace VideoApp
 
     public class MainWindow : Form
     {
-        private WMPPlayState playState { get; }
+        public WMPPlayState playState { get; }
         private int countTimer = 300;
         private readonly string currentComp = System.Environment.MachineName;
         private int id;
-        private System.Boolean fullScreen { get; set; }
+        public System.Boolean fullScreen { get; set; }
 
         private Timer timer1 { get; private set; }
 
